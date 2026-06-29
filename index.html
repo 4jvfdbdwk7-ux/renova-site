@@ -1,911 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RENOVA Home Improvement | Tile, Marble & Stone — Victoria BC</title>
-<meta name="description" content="Premium tile, marble and stone installation across Greater Victoria and Vancouver Island. Schluter Systems certified. Bathrooms, floors, kitchens, fireplaces.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --black: #0a0a0a;
-    --gold: #F5C518;
-    --white: #FAFAFA;
-    --grey: #888;
-    --light: #F0EDE8;
-    --serif: 'Cormorant Garamond', serif;
-    --sans: 'Inter', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--sans);
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(10,10,10,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(245,197,24,0.15);
-  }
-
-  .nav-logo {
-    display: flex; align-items: center; gap: 0.6rem;
-    text-decoration: none;
-  }
-
-  .logo-mark {
-    width: 36px; height: 36px;
-    border: 2px solid var(--white);
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  .logo-mark::after {
-    content: '';
-    position: absolute; bottom: 4px; left: 6px;
-    width: 18px; height: 2px;
-    background: var(--gold);
-    transform: rotate(-45deg);
-    transform-origin: left center;
-  }
-
-  .logo-text { display: flex; flex-direction: column; line-height: 1; }
-
-  .logo-name {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 1.05rem;
-    letter-spacing: 0.18em;
-    color: var(--white);
-  }
-
-  .logo-name span { color: var(--gold); }
-
-  .logo-sub {
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    color: var(--grey);
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--grey);
-    text-decoration: none;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--gold); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--black) !important;
-    padding: 0.5rem 1.2rem;
-    font-weight: 500 !important;
-    letter-spacing: 0.1em !important;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    height: 100vh; min-height: 600px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 70px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 4rem 4rem 4rem 5rem;
-    position: relative; z-index: 2;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    line-height: 1.05;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-desc {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: #aaa;
-    max-width: 400px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions { display: flex; gap: 1rem; align-items: center; }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--black);
-    padding: 0.9rem 2rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: opacity 0.3s;
-  }
-
-  .btn-primary:hover { opacity: 0.85; }
-
-  .btn-outline {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    padding: 0.9rem 2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: border-color 0.3s;
-  }
-
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-  .hero-right {
-    position: relative; overflow: hidden;
-  }
-
-  .hero-right img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: brightness(0.75);
-  }
-
-  .hero-right::before {
-    content: '';
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to right, var(--black) 0%, transparent 30%);
-  }
-
-  .hero-stat {
-    position: absolute; bottom: 3rem; left: -3rem; z-index: 3;
-    background: var(--gold);
-    color: var(--black);
-    padding: 1.2rem 1.8rem;
-  }
-
-  .hero-stat-num {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  .hero-stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-top: 0.2rem;
-  }
-
-  /* ── STRIP ── */
-  .strip {
-    background: var(--gold);
-    color: var(--black);
-    padding: 1rem 5rem;
-    display: flex; gap: 4rem; align-items: center;
-    overflow: hidden;
-  }
-
-  .strip-item {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .strip-dot { width: 4px; height: 4px; background: var(--black); border-radius: 50%; }
-
-  /* ── SERVICES ── */
-  .services {
-    padding: 7rem 5rem;
-    background: var(--black);
-  }
-
-  .section-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 4rem;
-  }
-
-  .section-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    line-height: 1.1;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-  }
-
-  .service-card {
-    background: var(--black);
-    padding: 2.5rem 2rem;
-    transition: background 0.3s;
-    border-left: 2px solid transparent;
-  }
-
-  .service-card:hover {
-    background: #111;
-    border-left-color: var(--gold);
-  }
-
-  .service-icon {
-    width: 36px; height: 36px;
-    border: 1px solid var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-  }
-
-  .service-name {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
-  }
-
-  .service-desc {
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: #888;
-  }
-
-  /* ── GALLERY ── */
-  .gallery {
-    padding: 7rem 5rem;
-    background: #080808;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 260px);
-    gap: 6px;
-    margin-top: 3rem;
-  }
-
-  .gallery-item {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .gallery-item img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-    filter: brightness(0.85);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.06);
-    filter: brightness(1);
-  }
-
-  .g1 { grid-column: 1 / 6; grid-row: 1 / 3; }
-  .g2 { grid-column: 6 / 9; grid-row: 1 / 2; }
-  .g3 { grid-column: 9 / 13; grid-row: 1 / 2; }
-  .g4 { grid-column: 6 / 9; grid-row: 2 / 3; }
-  .g5 { grid-column: 9 / 13; grid-row: 2 / 3; }
-  .g6 { grid-column: 1 / 5; grid-row: 3 / 4; }
-  .g7 { grid-column: 5 / 9; grid-row: 3 / 4; }
-  .g8 { grid-column: 9 / 13; grid-row: 3 / 4; }
-
-  /* ── SCHLUTER ── */
-  .schluter {
-    padding: 6rem 5rem;
-    background: #0d0d0d;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-
-  .schluter-badge {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    padding: 0.4rem 1rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .schluter-title {
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  .schluter-body {
-    font-size: 0.85rem;
-    line-height: 1.9;
-    color: #999;
-    margin-bottom: 2rem;
-  }
-
-  .schluter-list {
-    list-style: none;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
-  }
-
-  .schluter-list li {
-    font-size: 0.78rem;
-    color: #bbb;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-
-  .schluter-list li::before {
-    content: '';
-    width: 20px; height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .schluter-right {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
-  }
-
-  .schluter-right img {
-    width: 100%; aspect-ratio: 1;
-    object-fit: cover;
-    filter: brightness(0.8);
-  }
-
-  .schluter-right img:first-child {
-    grid-column: 1 / 3;
-    aspect-ratio: 2/1;
-  }
-
-  /* ── SERVICE AREA ── */
-  .area {
-    padding: 6rem 5rem;
-    background: var(--black);
-    text-align: center;
-  }
-
-  .area-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    margin-bottom: 1rem;
-  }
-
-  .area-desc {
-    font-size: 0.85rem;
-    color: #888;
-    max-width: 500px;
-    margin: 0 auto 3rem;
-    line-height: 1.8;
-  }
-
-  .area-tags {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
-    margin-bottom: 3rem;
-  }
-
-  .area-tag {
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 0.5rem 1.2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    color: #ccc;
-  }
-
-  .area-note {
-    font-size: 0.75rem;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-  }
-
-  /* ── CONTACT ── */
-  .contact {
-    padding: 7rem 5rem;
-    background: #070707;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
-  }
-
-  .contact-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-subtitle {
-    font-size: 0.85rem;
-    color: #888;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
-
-  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
-
-  .contact-icon {
-    width: 32px; height: 32px;
-    border: 1px solid rgba(245,197,24,0.3);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold); font-size: 0.85rem;
-    flex-shrink: 0; margin-top: 2px;
-  }
-
-  .contact-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--grey);
-    margin-bottom: 0.2rem;
-  }
-
-  .contact-value {
-    font-size: 0.9rem;
-    color: var(--white);
-  }
-
-  .contact-value a { color: inherit; text-decoration: none; }
-  .contact-value a:hover { color: var(--gold); }
-
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-
-  .form-field label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--grey);
-  }
-
-  .form-field input,
-  .form-field textarea,
-  .form-field select {
-    background: #111;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white);
-    padding: 0.8rem 1rem;
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    outline: none;
-    transition: border-color 0.3s;
-    -webkit-appearance: none;
-  }
-
-  .form-field input:focus,
-  .form-field textarea:focus,
-  .form-field select:focus {
-    border-color: var(--gold);
-  }
-
-  .form-field textarea { height: 120px; resize: none; }
-
-  .form-field select option { background: #111; }
-
-  .form-submit {
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 1rem 2rem;
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    align-self: flex-start;
-  }
-
-  .form-submit:hover { opacity: 0.85; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #050505;
-    padding: 2.5rem 5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .footer-copy {
-    font-size: 0.7rem;
-    color: #555;
-    letter-spacing: 0.05em;
-  }
-
-  .footer-copy span { color: var(--gold); }
-
-  .footer-links { display: flex; gap: 2rem; }
-
-  .footer-links a {
-    font-size: 0.65rem;
-    color: #555;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover { color: var(--gold); }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 3rem 1.5rem; }
-    .hero-right { display: none; }
-
-    .strip { padding: 1rem 1.5rem; gap: 2rem; overflow-x: auto; }
-
-    .services { padding: 4rem 1.5rem; }
-    .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .services-grid { grid-template-columns: 1fr; }
-
-    .gallery { padding: 4rem 1.5rem; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8 { grid-column: auto; grid-row: auto; height: 200px; }
-
-    .schluter { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
-    .schluter-list { grid-template-columns: 1fr; }
-
-    .area { padding: 4rem 1.5rem; }
-
-    .contact { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 3rem; }
-    .form-row { grid-template-columns: 1fr; }
-
-    footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <div class="logo-mark"></div>
-    <div class="logo-text">
-      <span class="logo-name">REN<span>O</span>VA</span>
-      <span class="logo-sub">Home Improvement</span>
-    </div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#schluter">Schluter Systems</a></li>
-    <li><a href="#area">Service Area</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Victoria BC · Greater Vancouver Island</p>
-    <h1 class="hero-title">
-      Tile, Marble<br>& Stone<br><em>Crafted</em> to Last
-    </h1>
-    <p class="hero-desc">
-      Premium installation of tile, marble, and natural stone for bathrooms, floors, kitchens, and outdoor spaces. European quality standards. Schluter Systems certified. Serving Greater Victoria within a 50 km radius.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Request a Quote</a>
-      <a href="#gallery" class="btn-outline">View Our Work</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="IMG_0877.jpeg" alt="Luxury marble bathroom renovation by RENOVA" 
-         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22900%22><rect fill=%22%23111%22 width=%22800%22 height=%22900%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23333%22 font-size=%2224%22 text-anchor=%22middle%22>RENOVA</text></svg>'">
-    <div class="hero-stat">
-      <div class="hero-stat-num">15+</div>
-      <div class="hero-stat-label">Years Experience</div>
-    </div>
-  </div>
-</section>
-
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-item">✦ Schluter Systems Certified</div>
-  <div class="strip-item">✦ Canada · USA · Europe</div>
-  <div class="strip-item">✦ All Material Types</div>
-  <div class="strip-item">✦ Mosaic to Large Format</div>
-  <div class="strip-item">✦ Materials Supply Included</div>
-  <div class="strip-item">✦ Heated Floor Systems</div>
-  <div class="strip-item">✦ Islands & Remote Areas</div>
-</div>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-header">
-    <div>
-      <p class="section-eyebrow">What We Do</p>
-      <h2 class="section-title">Precision Work<br>Across Every Surface</h2>
-    </div>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">⬜</div>
-      <h3 class="service-name">Bathroom Renovation</h3>
-      <p class="service-desc">Full bathroom transformations including shower enclosures, wet rooms, soaker tub surrounds, and floor-to-ceiling tile work with Schluter waterproofing systems.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◼</div>
-      <h3 class="service-name">Floor Installation</h3>
-      <p class="service-desc">Porcelain, ceramic, natural stone, marble, and mosaic floor installation for interiors and exteriors. Large format slabs, heated floor cable systems included.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◈</div>
-      <h3 class="service-name">Marble & Stone</h3>
-      <p class="service-desc">Natural marble, granite, quartzite, and ledgerstone for feature walls, staircases, fireplaces, and countertops. Luxury residential and commercial projects.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">▦</div>
-      <h3 class="service-name">Kitchen Backsplash</h3>
-      <p class="service-desc">Glass mosaic, ceramic, stone, and mixed-material kitchen backsplashes. Precise cuts, professional grouting including epoxy grout for lasting results.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">▣</div>
-      <h3 class="service-name">Fireplace Surround</h3>
-      <p class="service-desc">Natural stacked stone, marble, and large-format porcelain fireplace surrounds and accent walls. Interior and exterior applications.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">◻</div>
-      <h3 class="service-name">Outdoor & Patio</h3>
-      <p class="service-desc">Frost-resistant porcelain, natural stone, and paver installation for patios, pathways, pool decks, and exterior cladding across Vancouver Island.</p>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="section-header">
-    <div>
-      <p class="section-eyebrow">Portfolio</p>
-      <h2 class="section-title">Our Work Speaks<br>for Itself</h2>
-    </div>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item g1">
-      <img src="1782689343977_1A0FE6B3-77DA-478D-8B94-BAE3399348F8_1_102_o.jpeg" alt="Marble staircase and flooring" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g2">
-      <img src="1782689795885_94FE5696-8281-4D8C-947C-040B14A7E531_1_105_c.jpeg" alt="Luxury bathroom dark marble" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g3">
-      <img src="1782689654396_2B778551-3428-42E2-8505-138279341071_1_102_o.jpeg" alt="Black and white shower" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g4">
-      <img src="1782689472784_D887B772-1495-4D2C-8FF0-E4A111E9DADD_1_102_o.jpeg" alt="Bathroom shower tile" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g5">
-      <img src="1782689520868_204F0B75-5ED2-4939-9C60-8D062C27EC24_1_105_c.jpeg" alt="Stone fireplace" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g6">
-      <img src="1782689762003_2CFF31A4-A9A1-4E0B-8407-AD6AC01F656C_1_105_c.jpeg" alt="Outdoor patio tile" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g7">
-      <img src="1782689777001_7DF283DA-86F9-4B08-89F7-D537CC152F0E_1_105_c.jpeg" alt="Luxury bathroom renovation" onerror="this.style.background='#1a1a1a'">
-    </div>
-    <div class="gallery-item g8">
-      <img src="1782689822236_7DF283DA-86F9-4B08-89F7-D537CC152F0E_1_105_c.jpeg" alt="Pebble shower floor" onerror="this.style.background='#1a1a1a'">
-    </div>
-  </div>
-</section>
-
-<!-- SCHLUTER -->
-<section class="schluter" id="schluter">
-  <div class="schluter-left">
-    <div class="schluter-badge">Certified Partner</div>
-    <h2 class="schluter-title">Built on<br>Schluter Systems<br>Technology</h2>
-    <p class="schluter-body">
-      Every wet area we install is waterproofed using Schluter Systems — the industry gold standard trusted by premium contractors worldwide. This means your bathroom, shower, or steam room is guaranteed against water damage from day one.
-    </p>
-    <ul class="schluter-list">
-      <li>Kerdi waterproofing membranes</li>
-      <li>Ditra uncoupling membranes</li>
-      <li>Reno & Schiene edge trims</li>
-      <li>Jolly & Quadec profiles</li>
-      <li>Heated floor cable systems</li>
-      <li>Schluter shower systems</li>
-      <li>Epoxy grout application</li>
-      <li>All profile transitions</li>
-    </ul>
-  </div>
-  <div class="schluter-right">
-    <img src="1782689839611_31DB2E72-6D08-4BE7-AB5D-31779F92E45A_1_102_o.jpeg" alt="Schluter shower installation" onerror="this.style.background='#1a1a1a'; this.style.height='200px'">
-    <img src="IMG_9316.jpeg" alt="Tile work detail" onerror="this.style.background='#1a1a1a'">
-    <img src="IMG_9299.jpeg" alt="Mosaic floor" onerror="this.style.background='#1a1a1a'">
-  </div>
-</section>
-
-<!-- SERVICE AREA -->
-<section class="area" id="area">
-  <p class="section-eyebrow">Where We Work</p>
-  <h2 class="area-title">Greater Victoria &<br>Vancouver Island</h2>
-  <p class="area-desc">
-    Based in Victoria BC, we serve all communities within a 50 km radius. We also travel to remote areas and Gulf Islands with additional travel and material delivery costs.
-  </p>
-  <div class="area-tags">
-    <span class="area-tag">Victoria</span>
-    <span class="area-tag">Saanich</span>
-    <span class="area-tag">Oak Bay</span>
-    <span class="area-tag">Esquimalt</span>
-    <span class="area-tag">Langford</span>
-    <span class="area-tag">Colwood</span>
-    <span class="area-tag">Sooke</span>
-    <span class="area-tag">Sidney</span>
-    <span class="area-tag">Central Saanich</span>
-    <span class="area-tag">North Saanich</span>
-    <span class="area-tag">View Royal</span>
-    <span class="area-tag">Metchosin</span>
-  </div>
-  <p class="area-note">★ Gulf Islands & Remote Areas Available · Travel costs apply</p>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div>
-    <p class="section-eyebrow">Get in Touch</p>
-    <h2 class="contact-title">Ready to Start<br>Your Project?</h2>
-    <p class="contact-subtitle">
-      Contact us for a free consultation and quote. We'll assess your project, recommend the best materials, and provide a detailed estimate.
-    </p>
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <p class="contact-label">Phone</p>
-          <p class="contact-value"><a href="tel:2508836982">250 883-6982</a></p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉</div>
-        <div>
-          <p class="contact-label">Email</p>
-          <p class="contact-value"><a href="mailto:renovaisland@gmail.com">renovaisland@gmail.com</a></p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <p class="contact-label">Service Area</p>
-          <p class="contact-value">Greater Victoria, BC · 50 km radius</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-field">
-          <label>First Name</label>
-          <input type="text" placeholder="John" required>
-        </div>
-        <div class="form-field">
-          <label>Last Name</label>
-          <input type="text" placeholder="Smith">
-        </div>
-      </div>
-      <div class="form-field">
-        <label>Phone</label>
-        <input type="tel" placeholder="250 000-0000">
-      </div>
-      <div class="form-field">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" required>
-      </div>
-      <div class="form-field">
-        <label>Project Type</label>
-        <select>
-          <option value="">Select a service...</option>
-          <option>Bathroom Renovation</option>
-          <option>Floor Installation</option>
-          <option>Kitchen Backsplash</option>
-          <option>Marble & Stone Work</option>
-          <option>Fireplace Surround</option>
-          <option>Outdoor / Patio</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label>Tell Us About Your Project</label>
-        <textarea placeholder="Describe your project, dimensions, preferred materials, timeline..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send Message →</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p class="footer-copy">© 2025 <span>RENOVA</span> Home Improvement · Victoria BC · All rights reserved</p>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </div>
-</footer>
-
-<script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = '#2a7a2a';
-  btn.style.color = '#fff';
-  setTimeout(() => {
-    btn.textContent = 'Send Message →';
-    btn.style.background = '';
-    btn.style.color = '';
-    e.target.reset();
-  }, 3000);
-}
-
-// Smooth nav highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? '#F5C518' : '';
-  });
-});
-</script>
-</body>
-</html>
+RENOVA
+HOME IMPROVEMENT
+	•	SERVICES
+	•	GALLERY
+	•	SCHLUTER SYSTEMS
+	•	SERVICE AREA
+	•	GET A QUOTE
+￼
+￼
+￼
+
+VICTORIA BC · GREATER VANCOUVER ISLAND
+Tile, Marble & Stone Crafted to Last
+Premium installation of tile, marble, and natural stone. European quality standards. Schluter Systems certified. Serving Greater Victoria within a 50 km radius.
+REQUEST A QUOTE
+VIEW OUR WORK
+15+
+YEARS EXPERIENCE
+3
+CONTINENTS
+✦ SCHLUTER SYSTEMS CERTIFIED ✦ CANADA · USA · EUROPE ✦ ALL MATERIAL TYPES ✦ MOSAIC TO LARGE FORMAT ✦ MATERIALS SUPPLY INCLUDED ✦ HEATED FLOOR SYSTEMS ✦ ISLANDS & REMOTE AREAS
+WHAT WE DO
+Precision Work Across Every Surface
+⬜
+Bathroom Renovation
+Full bathroom transformations including shower enclosures, wet rooms, soaker tub surrounds, and floor-to-ceiling tile work with Schluter waterproofing systems.
+◼
+Floor Installation
+Porcelain, ceramic, natural stone, marble, and mosaic floor installation for interiors and exteriors. Large format slabs, heated floor cable systems included.
+◈
+Marble & Stone
+Natural marble, granite, quartzite, and ledgerstone for feature walls, staircases, fireplaces, and countertops. Luxury residential and commercial projects.
+▦
+Kitchen Backsplash
+Glass mosaic, ceramic, stone, and mixed-material kitchen backsplashes. Precise cuts, professional grouting including epoxy grout for lasting results.
+▣
+Fireplace Surround
+Natural stacked stone, marble, and large-format porcelain fireplace surrounds and accent walls. Interior and exterior applications.
+◻
+Outdoor & Patio
+Frost-resistant porcelain, natural stone, and paver installation for patios, pathways, pool decks, and exterior cladding across Vancouver Island.
+PORTFOLIO
+Our Work Speaks for Itself
+￼
+￼
+￼
+￼
+￼
+￼
+￼
+￼
+CERTIFIED PARTNER
+Built on Schluter Systems Technology
+Every wet area we install is waterproofed using Schluter Systems — the industry gold standard trusted by premium contractors worldwide. Your bathroom, shower, or steam room is guaranteed against water damage from day one.
+	•	Kerdi waterproofing membranes Ditra uncoupling membranes Reno & Schiene edge trims Jolly & Quadec profiles Heated floor cable systems Schluter shower systems Epoxy grout application All profile transitions
+￼
+￼
+￼
+WHERE WE WORK
+Greater Victoria & Vancouver Island
+Based in Victoria BC, we serve all communities within a 50 km radius. We also travel to remote areas and Gulf Islands with additional travel and material delivery costs.
+Victoria
+Saanich
+Oak Bay
+Esquimalt
+Langford
+Colwood
+Sooke
+Sidney
+Central Saanich
+North Saanich
+View Royal
+Metchosin
+★ Gulf Islands & Remote Areas Available · Travel costs apply
+GET IN TOUCH
+Ready to Start Your Project?
+Contact us for a free consultation and quote. We'll assess your project, recommend the best materials, and provide a detailed estimate.
+📞
+PHONE
+250 883-6982
+✉
+EMAIL
+renovaisland@gmail.com
+📍
+SERVICE AREA
+Greater Victoria, BC · 50 km radius
+FIRST NAME
+
+LAST NAME
+
+PHONE
+
+EMAIL
+
+PROJECT TYPE
+Select a service...Bathroom RenovationFloor InstallationKitchen BacksplashMarble & Stone WorkFireplace SurroundOutdoor / PatioOther
+TELL US ABOUT YOUR PROJECT
+SEND MESSAGE →
+© 2025 RENOVA Home Improvement · Victoria BC · All rights reserved
+SERVICES
+GALLERY
+CONTACT
